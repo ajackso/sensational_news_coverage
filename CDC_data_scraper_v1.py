@@ -44,6 +44,7 @@ def extractData(url_list):
         contentArray = post.text.encode('utf-8').splitlines()
 
         hasBeenUpdated = False
+
         if 'Updated' in contentArray[2]:
           hasBeenUpdated = True
 
@@ -79,5 +80,4 @@ def get_post_content(contentArray,content,hasBeenUpdated):
   return {"id":post_id,"title":title,"summary":summary,"content":content,"date":date}
 
 uls = [urls[-1]]
-
-print extractData(uls)
+extractData(uls)
