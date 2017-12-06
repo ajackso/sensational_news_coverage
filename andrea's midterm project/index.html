@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MAS.S70 Portfolio</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Portfolio website for MAS.S70 Fall 2017">
+    <meta name="author" content="Andrea Jackson">
+
+    <title>Andrea Jackson</title>
+
+    <style>
+
+    .link {
+      stroke: #ccc;
+      stroke-width: 1px;
+    }
+
+    /* .node {
+      /* fill: #5bf;
+      stroke: #000;
+      stroke-width: 1px;
+      pointer-events: all;
+    }
+    */
+
+    .node text{
+      pointer-events: all;
+      font: 11px sans-serif;
+      font-weight: 100;
+    }
+
+    </style>
+
+    <!-- Latest Bootstrap compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="cover.css" rel="stylesheet">
+
+    <!-- Fort Awesome -->
+    <script src="https://use.fortawesome.com/7569850e.js"></script>
+
+    <!-- D3 Library -->
+    <script src='http://d3js.org/d3.v3.min.js'></script>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-9 col-centered">
+                <h1 id="title"><a href="http://dataviz.media.mit.edu/">MAS.S70: Applied Data Visualization</a></h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-7 col-centered">
+
+            <p class="lead" id="intro">
+               Welcome to my portfolio for MAS.S70. Throughout the Fall 2017 semester I will add visualizations I create in this class to this page. Enjoy!
+            </p>
+
+            <p id="intro">
+                <a href="../"><i class="fa fa-arrow-circle-left fa-lg"></i></a> Return to Andrea's homepage
+            </p>
+
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-10 col-centered">
+
+              <h3> D3 Visualization of Guardian News Data</h3>
+
+              <p>
+                In MAS.S70, our assigned midterm project is to create a D3 visualization using data  from the British daily newspaper, The Guardian. Using a provided <a href="https://macroconnections.github.io/guardian-scraper-mas-s70/"> Guardian API Scraper </a> I created a visualization that reveals the relationships between the world's most powerful women. Some relationships are predictable such as Hillary Clinton and Michelle Obama and others are surprising and unexpected.
+              </p>
+
+              <div id="network_viz">
+              </div>
+
+              <script>
+
+              // define dimensions of visualization
+              var width = 950;
+              var height = 800;
+
+              var svg = d3.select('#network_viz').append('svg')
+                .attr('width', width)
+                .attr('height', height);
+
+              var force = d3.layout.force()
+                .size([width,height])
+                //.gravity(0.01)
+                .distance(300) //400 //230
+                .charge(-300);
+
+              d3.json("mpw_graph_data.json", function(error, json) {
+                if (error) throw error;
+
+                force.nodes(json.nodes)
+                  .links(json.links)
+                  .start();
+
+                // add nodes and links to visualization
+                var link = svg.selectAll('.link')
+                  .data(json.links)
+                  .enter().append('line')
+                  .attr('class','link')
+                  .style('stroke-width',function(d) {
+                    return d.value/40;
+                  });
+
+                var edgepaths = svg.selectAll(".edgepath")
+                  .data(json.links)
+                  .enter()
+                  .append('path')
+                  .attr({
+                      'class': 'edgepath',
+                      'fill-opacity': 0,
+                      'stroke-opacity': 0,
+                      'id': function (d, i) {return 'edgepath' + i}
+                  })
+                  .style("pointer-events", "none");
+
+                var edgelabels = svg.selectAll(".edgelabel")
+                  .data(json.links)
+                  .enter()
+                  .append("text")
+                  .attr({"class":"edgelabel",
+                    "id":function(d,i){return "edgelabel"+i;},
+                    "dx": 115,
+                    "dy": 0,
+                    "font-size":15,
+                    "fill":"#000"})
+                  .style("visibility", "hidden");
+
+                edgelabels.append("textPath")
+                  .attr("xlink:href",function(d,i){return "#edgepath"+i})
+                  .text(function(d,i){return d.value;});
+
+                 // create g element
+                var node = svg.selectAll('.node')
+                  .data(json.nodes)
+                  .enter().append("g")
+                  .attr('class','node')
+                  .call(force.drag)
+                  .on("mouseover",function(d) {
+                    link.style("stroke-width", function(link_) {
+                      if (d == link_.source)
+                        return 7;
+                    }) //.style("stroke","#5bf");
+                    edgelabels.style("visibility", function(e){
+                      if (d == e.source.index)
+                        return "visible"
+                    });
+                  })
+                  .on("mouseout", function(d) {
+                    link.style("stoke-width", link.value/40).style("stroke","#ccc");
+                    return edgelabels.style("visibility", "hidden");
+                  });
+
+                // add images
+                node.append("image")
+                  .attr("xlink:href", function(d){
+                    return "mpw_images/" + d.name.toLowerCase().split(" ").join("_") + ".png";
+                  })
+                  .attr("x", -12)
+                  .attr("y", -12)
+                  .attr("width", 25)
+                  .attr("height", 25);
+
+                // add links to node labels
+                node.append("a")
+                  .attr("xlink:href", function(d) {
+                    return "https://www.forbes.com/profile/" + d.name.toLowerCase().split(" ").join("-");
+                  })
+                  .append("text")
+                  .attr("dx", 15)
+                  .attr("dy", ".35em")
+                  .text(function(d) {return d.name});
+
+                force.on("tick", function() {
+                  link.attr("x1", function(d) { return d.source.x; })
+                      .attr("y1", function(d) { return d.source.y; })
+                      .attr("x2", function(d) { return d.target.x; })
+                      .attr("y2", function(d) { return d.target.y; });
+
+                  node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+
+                  edgepaths.attr('d', function (d) {
+                    return 'M ' + d.source.x + ' ' + d.source.y + ' L ' + d.target.x + ' ' + d.target.y; });
+
+                  // flip the labels if they are upside down
+                   edgelabels.attr('transform',function(d,i){
+                      if (d.target.x<d.source.x){
+                          bbox = this.getBBox();
+                          rx = bbox.x+bbox.width/2;
+                          ry = bbox.y+bbox.height/2;
+                          return 'rotate(180 '+rx+' '+ry+')';
+                          }
+                      else {
+                          return 'rotate(0)';
+                          }
+                    });
+
+                }); //force on
+
+              });
+
+              </script>
+
+            </div>
+
+        </div>
+    </div>
+
+  </body>
+
+</html>
