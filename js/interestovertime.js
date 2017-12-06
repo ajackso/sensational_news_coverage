@@ -10,7 +10,7 @@ var data = [
   ]
   // instantiate d3plus
   var visualization = d3plus.viz()
-    .container("#iot")  // container DIV to hold the visualization
+    .container("#svg_iot")  // container DIV to hold the visualization
     .data(data)         // data to use with the visualization
     .type("line")       // visualization type
     .id("disease")         // key for which our data is unique on
@@ -20,7 +20,7 @@ var data = [
     .draw()             // finally, draw the visualization!
 
 
-    
+
 
 
 /*// Map using d3plus (color the countries)

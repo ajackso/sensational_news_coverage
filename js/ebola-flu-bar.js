@@ -101,13 +101,13 @@ var data = [
   {"state": "Wyoming", "disease":"flu", "value": 24}]
 
 var visualization = d3plus.viz()
-    .container("#svg_map")
+    .container("#svg_ebola_flu_bar")
     .data(data)
     .type("bar")
     .id("disease")
     .x("state")
     .y({"stacked": true, "value": "value"})
-    .title("Ebola vs. Flu (Oct 2014 - March 2015)")      
+    .title("Ebola vs. Flu (Oct 2014 - March 2015)")
     .draw()
 
-  
+

@@ -100,17 +100,14 @@ var data = [
   {"state": "Wyoming", "disease":"zika", "value": 37},
   {"state": "Wyoming", "disease":"flu", "value": 85}]
 
-
-console.log(data)
-
 var visualization = d3plus.viz()
-    .container("#svg_map")
+    .container("#svg_zika_flu_bar")
     .data(data)
     .type("bar")
     .id("disease")
     .x("state")
     .y({"stacked": true, "value": "value"})
-    .title("Zika vs. Flu (Oct 2015 - March 2016)")      
+    .title("Zika vs. Flu (Oct 2015 - March 2016)")
     .draw()
 
-  
+
