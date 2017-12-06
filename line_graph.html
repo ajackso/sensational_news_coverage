@@ -49,23 +49,27 @@
     for(var key in json){
       var zika_count = json[key]['zika'];
       var ebola_count = json[key]['ebola'];
-      var date = key.slice(0,6)
-      var year = date.slice(0,4)
-      var month = date.slice(4,6)
-      // var day = date.slice(6,8)
-      data.push({"disease":'zika', "Year_Month":date, "Number of mentions":zika_count, "time":year})
-      data.push({"disease":'ebola', "Year_Month":date, "Number of mentions":ebola_count, "time":year})
+      var year = key.slice(0,4)
+      var month = key.slice(4,6)
+      var formatted_date = month+"/01/"+year
+      data.push({"disease":'zika', "Number of mentions":zika_count, "time":formatted_date})
+      data.push({"disease":'ebola', "Number of mentions":ebola_count, "time":formatted_date})
     }
-
     // https://d3plus.org/examples/basic/9037371/
     // https://www.npmjs.com/package/d3plus-viz
+    //https://github.com/alexandersimoes/d3plus/wiki/Visualizations
     var visualization = d3plus.viz()
     .container("#line_graph")  // container DIV to hold the visualization
     .data(data)                // data to use with the visualization
     .type("line")              // visualization type
     .id("disease")             // key for which our data is unique on
     .y("Number of mentions")                    // key to use for y-axis
-    .x("Year_Month")                    // key to use for x-axis
+    .x({
+      "value":"time",
+      "label":"Date"
+    })       // key to use for x-axis
+    .time({"value":"time","fixed":false})
+    .timeline({"hover":"grab"})
     .draw()                    // finally, draw the visualization!
 
   })
