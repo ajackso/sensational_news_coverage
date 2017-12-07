@@ -1,8 +1,12 @@
 /*Index CSS*/
-body {
+
+body{
 	padding-top: 90px;
-	padding-right: 150px;
-	padding-left: 150px;
+}
+
+#content{
+	padding-right: 200px;
+	padding-left: 200px;
 }
 
 body h1{
@@ -18,7 +22,6 @@ body h2{
 }
 
 body h3{
-	text-align: center;
     font-family: 'Raleway', sans-serif;
 }
 
@@ -30,6 +33,12 @@ body h4{
 body p{
 	font-family: 'Raleway', sans-serif;
 	font-size: 20px;
+}
+
+body #intro_head{
+	text-align:center; 
+	font-weight: bolder;
+	font-size: 24px;
 }
 
 body #caption{

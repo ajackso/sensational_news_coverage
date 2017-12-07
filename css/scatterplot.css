@@ -14,7 +14,7 @@ body {
   stroke: #000;
 }
 
-#scatterplot_graph {
+#svg_scatterplot_graph {
   display: table;
   margin: 0 auto;
 }

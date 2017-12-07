@@ -89,8 +89,8 @@ var data = [
   {"state": "Utah", "disease":"flu", "value": 89},
   {"state": "Vermont", "disease":"zika", "value": 64},
   {"state": "Vermont", "disease":"flu", "value": 73},
-  {"state": "Virginia", "disease":"zika", "42": 57},
-  {"state": "Virginia", "disease":"flu", "17": 83},
+  {"state": "Virginia", "disease":"zika", "value": 57},
+  {"state": "Virginia", "disease":"flu", "value": 83},
   {"state": "Washington", "disease":"zika", "value": 53},
   {"state": "Washington", "disease":"flu", "value": 86},
   {"state": "West Virginia", "disease":"zika", "value": 42},
@@ -108,6 +108,8 @@ var visualization = d3plus.viz()
     .x("state")
     .y({"stacked": true, "value": "value"})
     .title("Zika vs. Flu (Oct 2015 - March 2016)")
-    .draw()
+    .footer({"font":{"size":"20px"},"value":"This stacked bar chart highlights how often audiences searched for the flu as opposed to Zika. Overwhelmingly, audiences searched for the flu."})
+    .tooltip("state")    // list the keys to show in tooltip
+  .draw();
 
 

@@ -12,6 +12,7 @@ d3.json("../data/zika-flu-map.json", function(error, json) {
   .type("geo_map")
   .text("")
   .title("Zika vs. Flu (Oct 2015 - March 2016)")
+  .footer({"font":{"size":"20px"},"value":"If we visualize this data in another way, though, we notice something interesting: during flu season 2015-2016, audiences in every state except for Florida were more concerned with the flu than with Zika."})
   .legend(false)
   .tooltip({"sub":"state","children":false,"value":["zika", "flu"]})   // list the keys to show in tooltip
   .draw();
