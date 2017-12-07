@@ -6,6 +6,7 @@
 	<title>Sensational News Coverage</title>
 
 	<link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/scatterplot.css">
 	<link href="https://fonts.googleapis.com/css?family=Lato|Raleway" rel="stylesheet">
 	<!-- Latest Bootstrap compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -54,6 +55,13 @@
 		<div id="svg_cdc_line_graph"></div>
 	</div>
 
+  <div style=text-align:center>
+    <h4>Google Searches of Zika and Ebola over time</h4>
+    <h5>January 2014 - November 2017</h5>
+  </div>
+
+  <div id="svg_scatterplot_graph"></div>
+
 	<div id = "more">
 		<p>To conduct this project, we pulled data from three sources: Media Cloud, a service that tracks news coverage from a number of news sources around the world, Data USA, a service that provides demographic information for the United States, and travel notices released by the Centers for Disease Control. We collected information on how often Ebola and Zika were mentioned by news outlets around the US, demographic information on various regions in the US, and the frequency with which Ebola and Zika were mentioned by the CDC in any given time period. To learn more about our data collection process, click here. </p>
 	</div>
@@ -66,5 +74,6 @@
   <script src="js/zika-flu-map.js"></script>
 	<script src="js/interestovertime.js"></script>
 	<script src="js/line_graph.js"></script>
+  <script src="js/scatterplot.js"></script>
 
 </html>

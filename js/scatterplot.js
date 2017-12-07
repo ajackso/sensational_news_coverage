@@ -14,34 +14,35 @@ height = 500 - margin.top - margin.bottom;
 */
 
 // setup x
-var parseTime = d3.timeParse("%d-%b-%y");
+// var parseTime = d3.timeParse("%d-%b-%y");
+var parseTime = d3.time.format("%d-%b-%y");
 
 var xValue = function(d) { return d.Week;}, // data -> value
   xText = function(d) {return d.WeekText;},
   // xScale = d3.scale.linear().range([0, width]), // value -> display
-  xScale = d3.scaleTime().rangeRound([0, width]),
+  xScale = d3.time.scale().rangeRound([0, width]),
   xMap = function(d) { return xScale(xValue(d));}, // data -> display
-  xAxis = d3.axisBottom().scale(xScale);
+  xAxis = d3.svg.axis().scale(xScale).orient("bottom");
 
 // setup y
 var yValue = function(d) { return d.Value;}, // data -> value
-  yScale = d3.scaleLinear().range([height, 0]), // value -> display
+  yScale = d3.scale.linear().range([height, 0]), // value -> display
   yMap = function(d) { return yScale(yValue(d));}, // data -> display
-  yAxis = d3.axisLeft().scale(yScale);
+  yAxis = d3.svg.axis().scale(yScale).orient("left");
 
 // setup fill color
 var cValue = function(d) { return d.Disease;},
-  color = d3.scaleOrdinal(d3.schemeCategory10);
+  color = d3.scale.category10();
 
 // add the graph canvas to the body of the webpage
-var svg = d3.select("#scatterplot_graph").append("svg")
+var svg = d3.select("#svg_scatterplot_graph").append("svg")
   .attr("width", width + margin.left + margin.right)
   .attr("height", height + margin.top + margin.bottom)
 .append("g")
   .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 // add the tooltip area to the webpage
-var tooltip = d3.select("#scatterplot_graph").append("div")
+var tooltip = d3.select("#svg_scatterplot_graph").append("div")
   .attr("class", "tooltip")
   .style("opacity", 0);
 
@@ -51,7 +52,7 @@ d3.csv("../data/01_Ebola Zika Timeline of Searches.csv", function(error, data) {
   // change string (from CSV) into number format
   data.forEach(function(d) {
     d.Value = +d.Value;
-    d.Week = parseTime(d.Week).valueOf(); //valueOf() getDay() getDate()
+    d.Week = parseTime.parse(d.Week).valueOf(); //valueOf() getDay() getDate()
   });
 
   // don't want dots overlapping axis, so add in buffer to data domain
@@ -66,7 +67,7 @@ d3.csv("../data/01_Ebola Zika Timeline of Searches.csv", function(error, data) {
     .append("text")
       .attr("class", "label")
       .attr("x", width)
-      .attr("y", -6)
+      .attr("y", -20)
       .style("text-anchor", "end")
       .text("Day/Month/Year");
 
