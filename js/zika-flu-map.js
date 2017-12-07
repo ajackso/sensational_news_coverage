@@ -12,6 +12,7 @@ d3.json("../data/zika-flu-map.json", function(error, json) {
   .type("geo_map")
   .text("")
   .title("Zika vs. Flu (Oct 2015 - March 2016)")
+  .legend(false)
   .tooltip({"sub":"state","children":false,"value":["zika", "flu"]})   // list the keys to show in tooltip
   .draw();
 })
