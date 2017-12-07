@@ -1,4 +1,4 @@
-{"data":[
+[
 	{"id": "01", "zika": 45, "flu": 80, "state": "Alabama", "color": "#202556"},
 	{"id": "04", "zika": 42, "flu": 98, "state": "Arizona", "color": "#202556"},
 	{"id": "05", "zika": 40, "flu": 82, "state": "Arkansas", "color": "#202556"},
@@ -47,4 +47,4 @@
 	 {"id": "54", "zika": 42, "flu": 90, "state": "West Virginia", "color": "#202556"},
 	 {"id": "55", "zika": 49, "flu": 88, "state": "Wisconsin", "color": "#202556"},
 	 {"id": "56", "zika": 37, "flu": 85, "state": "Wyoming", "color": "#202556"}
-]}
+]
