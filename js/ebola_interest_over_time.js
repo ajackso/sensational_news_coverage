@@ -22,5 +22,6 @@ d3.csv("/data/Ebola_Flu_Interest_Over_Time.csv", function(error, data) {
     .timeline({"hover":"grab"})
     .tooltip(["Name","Date","Year","Value"])
     .title("Ebola vs. Flu Interest Over Time (October 2015 - March 2016)")
+    .footer({"font":{"size":"20px"},"value":"When you track interest over time in U.S. audiences based on searches for Ebola and the flu, we also realize that — while the Ebola outbreak was at its peak — more searches for Ebola took place than the flu."})
     .draw()
 });
