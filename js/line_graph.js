@@ -14,6 +14,7 @@ d3.json("../data/cdc_data.json", function(error, json) {
     data.push({"disease":'zika', "Number of mentions":zika_count, "time":formatted_date})
     data.push({"disease":'ebola', "Number of mentions":ebola_count, "time":formatted_date})
   }
+
   // https://d3plus.org/examples/basic/9037371/
   // https://www.npmjs.com/package/d3plus-viz
   //https://github.com/alexandersimoes/d3plus/wiki/Visualizations
