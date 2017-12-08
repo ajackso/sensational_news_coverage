@@ -21,5 +21,6 @@ d3.csv("/data/Ebola_Flu_Interest_Over_Time.csv", function(error, data) {
     })
     .timeline({"hover":"grab"})
     .tooltip(["Name","Date","Year","Value"])
+    .title("Ebola vs. Flu Interest Over Time (October 2015 - March 2016)")
     .draw()
 });

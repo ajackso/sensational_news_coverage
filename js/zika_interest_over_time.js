@@ -21,5 +21,6 @@ d3.csv("/data/Zika_Flu_Interest_Over_Time.csv", function(error, data) {
     })
     .timeline({"hover":"grab"})
     .tooltip(["Name","Date","Year","Value"])
+    .title("Zika vs. Flu Interest Over Time (October 2014 - March 2015)")
     .draw()
 });
