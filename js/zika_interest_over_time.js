@@ -22,6 +22,6 @@ d3.csv("/data/Zika_Flu_Interest_Over_Time.csv", function(error, data) {
     .timeline({"hover":"grab"})
     .tooltip(["Name","Date","Year","Value"])
     .title("Zika vs. Flu Interest Over Time (October 2014 - March 2015)")
-    .footer({"font":{"size":"20px"},"value":"That being said, U.S. audiences in total did search for Zika more than they searched for Ebola between the end of 2015 and middle of Feb. 2016."})
+    .footer({"font":{"size":"20px"},"value":"That being said, U.S. audiences in total did search for Zika more than they searched for the flu between the end of 2015 and middle of Feb. 2016."})
     .draw()
 });
