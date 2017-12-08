@@ -46,3 +46,7 @@ body #caption{
 	font-family: 'Raleway', sans-serif;
 	font-size: 20px;
 }
+
+body hr { 
+    height:20px;
+}

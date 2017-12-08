@@ -30,30 +30,34 @@
 	<div id = "content">
 		<div id = "intro">
 			<p id = "intro_head">INTRODUCTION</p>
-			<p> During a disease outbreak, people find themselves turning to two primary sources of information: public health organizations and news organizations. Generally speaking, news organizations report based on the information provided by public health organizations, but how they do so — the frequency with which they report, the type of reporting that takes place, and even the amount of detail in that reporting — can vary based on the organization and the disease. </p>
+			<p>During a disease outbreak, people find themselves turning to two primary sources of information: public health organizations and news organizations. Generally speaking, news organizations report based on the information provided by public health organizations, but how they do so — the frequency with which they report, the type of reporting that takes place, and even the amount of detail in that reporting — can vary based on the organization and the disease.</p>
 
-			<p> As conversation on the outbreak spreads, audiences search for more information about the outbreak in question, looking for their own information and answers. 
-			</p>
+			<p>As conversation on the outbreak spreads, audiences search for more information about the outbreak in question, looking for their own information and answers. </p>
 
 			<p id = "intro_head">PROJECT OVERVIEW</p>
 			<p>This project examines whether or not there is a disparity between what is being reported during a disease outbreak (in this case, public health notifications of an outbreak) and what audiences are searching for (U.S. audience Google search data).</p> 
 
-			<p>Having done so, we found that U.S. audiences overwhelmingly search for the diseases that they aren’t necessarily at most risk for in a given time period. We conducted our research with a focus on Ebola and Zika, given that both are disease outbreaks that have: (1) taken place in the last few years, (2) originated abroad, but came to the United States in some capacity, and (3) generated a significant amount of mainstream media coverage. </p>
+			<p>Having done so, we found that <span style="font-weight:900;font-size:20px">U.S. audiences overwhelmingly search for the diseases that they aren’t necessarily at most risk for in a given time period.</span>  We conducted our research with a focus on Ebola and Zika, given that both are disease outbreaks that have: (1) taken place in the last few years, (2) originated abroad, but came to the United States in some capacity, and (3) generated a significant amount of mainstream media coverage.</p>
 
-			<p>We built this series of visualizations to examine the disparity between audience interpretations of risk for a disease and the disease’s actual prevalence. </p>
+			<p>We built this series of visualizations to examine the disparity between audience interpretations of risk for a disease and the disease’s actual prevalence.</p>
 
 			<p>For the purposes of this series of visualizations, we used data from the CDC to determine the actual risk and prevalence of Ebola and Zika. We used Google Trends data to determine how often U.S. audiences searched for either Ebola or Zika during the relevant outbreak period; this data was used to interpret whether or not audiences were concerned about the outbreak in question.</p>
 
 			<p id = "intro_head">CONTEXT</p>
 			<p>Let’s start by talking about how prevalent Ebola and Zika actually were/are in the United States. </p>
 
-			<p>The Ebola outbreak took place in 2014, and was based in West Africa. According to the Centers for Disease Control and Prevention (CDC), only four instances of Ebola were found in the United States — between September and October 2014. Of those four instances, three took place in Texas, following Thomas Duncan’s return from West Africa and subsequent diagnosis with the disease. The other instance took place in New York, following the return of another medical aid worker, Dr. Craig Spencer, from West Africa.</p>
+			<p>The Ebola outbreak took place in 2014, and was based in West Africa. <a href="https://www.cdc.gov/vhf/ebola/outbreaks/2014-west-africa/united-states-imported-case.html">According to the Centers for Disease Control and Prevention (CDC)</a>, only four instances of Ebola were found in the United States — between September and October 2014. Of those four instances, three took place in Texas, following <a href="https://www.usatoday.com/story/news/nation/2014/10/17/ebola-duncan-congress-timeline/17456825/">Thomas Duncan’s</a> return from West Africa and subsequent diagnosis with the disease. The other instance took place in New York, following the return of another medical aid worker, <a href="https://www.nytimes.com/2014/10/24/nyregion/craig-spencer-is-tested-for-ebola-virus-at-bellevue-hospital-in-new-york-city.html?_r=1">Dr. Craig Spencer</a>, from West Africa.</p>
 
-			<p>The Zika outbreak began in 2015, first gaining traction in South America, before entering the United States. Zika is a mosquito-borne disease that is now found most often in California, Florida, New York, and Texas. Between 2015 and December 2017, over 5,000 symptomatic disease cases have been reported in the United States. </p>
+			<p>The Zika outbreak began in 2015, first gaining traction in South America, before entering the United States. Zika is a mosquito-borne disease that is now found most often in California, Florida, New York, and Texas. Between 2015 and December 2017, <a href="https://www.cdc.gov/zika/reporting/2015-case-counts.html">over 5,000 symptomatic disease cases have been reported in the United States.</a></p>
 
 			<p>Consequently, if one compares the actual risk of a U.S. resident contracting Ebola with the actual risk of contracting Zika, it becomes apparent that residents have a greater likelihood of contracting Zika. </p>
+			<br>
+			<img src="img/2016_Zika_CaseCounts.jpeg" alt="2016 Zika Case Counts: Official CDC visualization" style="display: block;margin: auto;width:80%">
+
+			<p id="caption">2016 Zika Case Counts: Official CDC Visualization (<a href="https://www.cdc.gov/zika/reporting/2016-case-counts.html">Source</a>)</p>
 		</div>
 
+		<br>
 		<div id = "reality_vs_perception">
 			<h2>CDC Notices: Factual Benchmarks</h2>
 		    <h3>This conclusion is further supported by an analysis of the CDC’s own notices regarding both disease outbreaks. This line graph highlights how many notices the CDC released about Ebola and Zika between 2014 and the end of Nov. 2017, aggregated on a monthly basis. There are far fewer Ebola notices than Zika notices. </h3>
@@ -67,7 +71,7 @@
 			<div id="svg_scatterplot_graph"></div>
 		</div>
 
-		<hr>
+		<hr style="height:1px;border:none;color:#333;background-color:#333;" />
 
 		<div id = "flu" style="height:100%;width:100%">
 			<h2>Audience Interest Compared to "Normal"</h2>
@@ -83,6 +87,7 @@
 			</div>
 			<h4>ZIKA IOT GRAPH</h4>
 
+			<br>
 			<h4>Ebola</h4>
 			<div style="height: 400px">
 				<div class="chart" id="svg_ebola_flu_bar" style="height:100%;width:49%;display:inline-block"></div>
@@ -92,7 +97,11 @@
 		</div>
 
 		<div id = "conclusion">
-			<p>this is the end</p>
+			<h2>Conclusions</h2>
+			<p>Together, these visualizations show us that U.S. audiences consider disease along lines that don’t necessarily correlate with their actual risk for contracting a given disease.</p>
+
+			<p>Given these findings, we’re interested in looking at how media coverage might relate to audience searches of disease outbreaks, and how this might manifest itself along regional lines. Going forward, we’re interested in exploring this question in more detail through an exploration of the frequency with with regional news organizations mentioned Ebola and Zika during each respective disease outbreak. 
+			</p>
 		</div>
 
 	</div>

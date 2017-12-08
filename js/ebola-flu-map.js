@@ -59,6 +59,7 @@ var chart = new d3plus.viz()
   .text("")         // key to use for display text
   .color("color")
   .title("Ebola vs. Flu (Oct 2014 - March 2015)")
+  .footer({"font":{"size":"20px"},"value":"In fact, audiences searched for Ebola with such frequency that no state searched for the flu more than they searched for Ebola."})
   .tooltip({"sub":"name","children":false,"value":["ebola", "flu"]})   // list the keys to show in tooltip
   .draw();
 

@@ -108,6 +108,7 @@ var visualization = d3plus.viz()
     .x("state")
     .y({"stacked": true, "value": "value"})
     .title("Ebola vs. Flu (Oct 2014 - March 2015)")
+    .footer({"font":{"size":"20px"},"value":"This stacked bar chart highlights how often audiences searched for the flu as opposed to Ebola. Overwhelmingly, audiences searched for Ebola."})
     .tooltip("state")
     .draw()
 
