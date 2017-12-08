@@ -1,6 +1,6 @@
 /*Scatterplot CSS */
 body {
-    font: 14px sans-serif;
+    ffont-family: 'Raleway', sans-serif;
   }
 
 .axis path,
@@ -14,7 +14,7 @@ body {
   stroke: #000;
 }
 
-#scatterplot_graph {
+#svg_scatterplot_graph {
   display: table;
   margin: 0 auto;
 }

@@ -108,6 +108,7 @@ var visualization = d3plus.viz()
     .x("state")
     .y({"stacked": true, "value": "value"})
     .title("Ebola vs. Flu (Oct 2014 - March 2015)")
+    .tooltip("state")
     .draw()
 
 
